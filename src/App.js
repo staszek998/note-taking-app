@@ -1,9 +1,15 @@
 import React, { Component } from "react";
+
 import "./App.css";
+import Main from "./js/Main";
 
 class App extends Component {
   render() {
-    return <div>Note Taking App</div>;
+    return (
+      <div>
+        <Main />
+      </div>
+    );
   }
 }
 
