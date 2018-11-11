@@ -10,9 +10,6 @@ const createTestNote = (title, body, labels, pinned) => {
   };
 };
 
-const lorem =
-  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro fugit, doloribus provident laboriosam pariatur facere id aut tempore eos perspiciatis inventore iure aspernatur molestiae, at voluptates aperiam, quibusdam hic. Temporibus.";
-
 const testNote1 = createTestNote(
   "Meeting with Peter",
   `The meeting was fast. Incredibly fast and short. I didn't even have time to write any notes from it.`,
