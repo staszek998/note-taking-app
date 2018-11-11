@@ -1,5 +1,10 @@
 .floating-button {
   position: fixed;
-  bottom: 50px;
-  right: 50px;
+  bottom: 0px;
+  right: 0px;
+
+  @media (min-width: 768px) {
+    bottom: 50px;
+    right: 50px;
+  }
 }
