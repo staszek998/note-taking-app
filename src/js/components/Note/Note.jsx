@@ -3,7 +3,16 @@ import PropTypes from "prop-types";
 
 import Label from "../Label/Label";
 
-const Note = ({ title, body, labels = [], pinned = false }) => (
+const Note = ({
+  title,
+  body,
+  labels = [],
+  pinned = false,
+  id,
+  deleteHandler = fn => fn,
+  editButtonClickHandler = fn => fn,
+  togglePinClickHandler = fn => fn
+}) => (
   <article className="card">
     <div className="card-body">
       {title ? <h3 className="card-title">{title}</h3> : null}
@@ -15,9 +24,7 @@ const Note = ({ title, body, labels = [], pinned = false }) => (
       {labels.length > 0 ? (
         <div className="row px-2">
           {labels.map((label, index) => (
-            <div className="col-auto px-1">
-              <Label key={index} text={label} />
-            </div>
+            <Label key={index} text={label} />
           ))}
         </div>
       ) : null}
@@ -26,9 +33,9 @@ const Note = ({ title, body, labels = [], pinned = false }) => (
 
       <div className="row">
         <div className="col-auto">
-          <div class="dropdown">
+          <div className="dropdown">
             <button
-              className="btn btn-secondary dropdown-toggle"
+              className="btn btn-primary dropdown-toggle"
               type="button"
               id="actions"
               data-toggle="dropdown"
@@ -38,11 +45,26 @@ const Note = ({ title, body, labels = [], pinned = false }) => (
               Action
             </button>
             <div className="dropdown-menu" aria-labelledby="actions">
-              <button className="dropdown-item">Edit</button>
-              <button className="dropdown-item">
+              <button
+                className="dropdown-item"
+                data-toggle="modal"
+                data-target="#modal-edit-note"
+                onClick={() => editButtonClickHandler(id)}
+              >
+                Edit
+              </button>
+              <button
+                className="dropdown-item"
+                onClick={() => togglePinClickHandler(id)}
+              >
                 {pinned ? "Unpin" : "Add to pinned"}
               </button>
-              <button className="dropdown-item">Delete</button>
+              <button
+                className="dropdown-item"
+                onClick={() => deleteHandler(id)}
+              >
+                Delete
+              </button>
             </div>
           </div>
         </div>
@@ -54,7 +76,11 @@ const Note = ({ title, body, labels = [], pinned = false }) => (
 Note.propTypes = {
   title: PropTypes.string,
   body: PropTypes.string,
-  labels: PropTypes.array
+  labels: PropTypes.arrayOf(PropTypes.string),
+  deleteHandler: PropTypes.func,
+  id: PropTypes.string,
+  editButtonClickHandler: PropTypes.func,
+  togglePinClickHandler: PropTypes.func
 };
 
 export default Note;
