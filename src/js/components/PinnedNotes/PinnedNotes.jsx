@@ -18,7 +18,7 @@ const PinnedNotes = ({
       {notes.length > 0 ? (
         <div className="row">
           {notes.map((note, index) => (
-            <div key={index} className="col-12 col-md-6 col-lg-4 col-xl-3 mt-3">
+            <div key={index} className="col-12 col-lg-6 mt-3">
               <Note
                 {...note}
                 deleteHandler={deleteHandler}
