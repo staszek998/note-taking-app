@@ -8,11 +8,15 @@ const search = (notes, query, scope) => {
   switch (scope) {
     case "body":
       return notes.filter(note =>
-        note.body.toLowerCase().indexOf(query) !== -1 ? true : false
+        note.body.toLowerCase().indexOf(query.toLowerCase()) !== -1
+          ? true
+          : false
       );
     case "title":
       return notes.filter(note =>
-        note.title.toLowerCase().indexOf(query) !== -1 ? true : false
+        note.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
+          ? true
+          : false
       );
     case "both":
       return notes.filter(note =>
