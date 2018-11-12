@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import firebase from "firebase";
 
 // JSX components
 import AllNotes from "./components/AllNotes/AllNotes";
@@ -18,6 +19,18 @@ import getLabels from "./helpers/get-labels";
 import filterByLabels from "./helpers/filter-by-labels";
 import createCurrentView from "./helpers/current-view";
 
+// Firebase
+const config = {
+  apiKey: "AIzaSyDVB_OgF3hcghw0Vmh6_qvh4MeUMRslD7M",
+  authDomain: "note-taking-app-b9b9b.firebaseapp.com",
+  databaseURL: "https://note-taking-app-b9b9b.firebaseio.com/notes",
+  projectId: "note-taking-app-b9b9b"
+};
+firebase.initializeApp(config);
+const database = firebase.database();
+const auth = firebase.auth();
+
+// Initialise the uuid
 const uuidv4 = require("uuid/v4");
 
 class Main extends Component {
