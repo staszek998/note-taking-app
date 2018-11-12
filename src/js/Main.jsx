@@ -12,7 +12,7 @@ import Search from "./components/Search/Search";
 // Database
 import testNotes from "./db/test-notes";
 
-// Reducers
+// Helpers
 import search from "./helpers/search";
 import getLabels from "./helpers/get-labels";
 import filterByLabels from "./helpers/filter-by-labels";
