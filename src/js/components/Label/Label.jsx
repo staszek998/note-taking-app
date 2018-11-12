@@ -7,17 +7,17 @@ const Label = ({
   clickable = false,
   active = false
 }) => (
-  <a
+  <button
     onClick={() => {
       console.log(`Clicked label: ${text}`);
       clickHandler(text);
     }}
-    className={`badge ${
-      active ? "badge-success" : "badge-secondary"
+    className={`btn btn-sm ${
+      active ? "btn-success" : "btn-secondary"
     } mr-1 text-white ${clickable ? "clickable" : ""}`}
   >
     {text}
-  </a>
+  </button>
 );
 
 Label.propTypes = {
