@@ -22,13 +22,16 @@
     <script>
       // Initialize Firebase
       // TODO: Replace with your project's customized code snippet
-      var config = {
+      const config = {
         apiKey: "AIzaSyDVB_OgF3hcghw0Vmh6_qvh4MeUMRslD7M",
         authDomain: "note-taking-app-b9b9b.firebaseapp.com",
         databaseURL: "https://note-taking-app-b9b9b.firebaseio.com/",
         projectId: "note-taking-app-b9b9b"
       };
+
       firebase.initializeApp(config);
+
+      const database = firebase.database();
     </script>
   </head>
 
