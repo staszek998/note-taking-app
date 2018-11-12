@@ -7,7 +7,7 @@ const getNotes = firebase => {
     .database()
     .ref("/notes/")
     .once("value")
-    .then(snapshot => snapshot.val);
+    .then(snapshot => snapshot.val());
 };
 
 export default getNotes;

@@ -25,12 +25,18 @@ import logUser from "./helpers/log-user";
 const config = {
   apiKey: "AIzaSyDVB_OgF3hcghw0Vmh6_qvh4MeUMRslD7M",
   authDomain: "note-taking-app-b9b9b.firebaseapp.com",
-  databaseURL: "https://note-taking-app-b9b9b.firebaseio.com/notes",
+  databaseURL: "https://note-taking-app-b9b9b.firebaseio.com",
   projectId: "note-taking-app-b9b9b"
 };
 firebase.initializeApp(config);
 const database = firebase.database();
 const auth = firebase.auth();
+
+// Firebase tests
+console.log(`Logging in the user...`);
+logUser(firebase, "gregor.stanislaw@hotmail.com", "note-taking-app");
+console.log(`Fetching the notes...`);
+getNotes(firebase).then(response => console.log(response));
 
 // Initialise the uuid
 const uuidv4 = require("uuid/v4");
