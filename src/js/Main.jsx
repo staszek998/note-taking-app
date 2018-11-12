@@ -18,6 +18,8 @@ import search from "./helpers/search";
 import getLabels from "./helpers/get-labels";
 import filterByLabels from "./helpers/filter-by-labels";
 import createCurrentView from "./helpers/current-view";
+import getNotes from "./helpers/get-notes";
+import logUser from "./helpers/log-user";
 
 // Firebase
 const config = {
