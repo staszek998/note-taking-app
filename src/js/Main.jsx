@@ -18,8 +18,8 @@ import search from "./helpers/search";
 import getLabels from "./helpers/get-labels";
 import filterByLabels from "./helpers/filter-by-labels";
 import createCurrentView from "./helpers/current-view";
-import getNotes from "./helpers/get-notes";
-import logUser from "./helpers/log-user";
+// import getNotes from "./helpers/get-notes";
+// import logUser from "./helpers/log-user";
 
 // Firebase
 const config = {
@@ -29,14 +29,6 @@ const config = {
   projectId: "note-taking-app-b9b9b"
 };
 firebase.initializeApp(config);
-const database = firebase.database();
-const auth = firebase.auth();
-
-// Firebase tests
-console.log(`Logging in the user...`);
-logUser(firebase, "gregor.stanislaw@hotmail.com", "note-taking-app");
-console.log(`Fetching the notes...`);
-getNotes(firebase).then(response => console.log(response));
 
 // Initialise the uuid
 const uuidv4 = require("uuid/v4");
