@@ -29,7 +29,7 @@ class EditNote extends Component {
       body: newProps.currentlyEditedNote.body,
       labels:
         newProps.currentlyEditedNote.labels !== undefined
-          ? newProps.currentlyEditedNote.labels.join(", ")
+          ? newProps.currentlyEditedNote.labels
           : ""
     });
 

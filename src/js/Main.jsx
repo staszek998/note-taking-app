@@ -16,6 +16,7 @@ import getLabels from "./helpers/get-labels";
 import filterByLabels from "./helpers/filter-by-labels";
 import createCurrentView from "./helpers/current-view";
 import getNotes from "./helpers/get-notes";
+import saveNoteEdits from "./helpers/save-note-edits";
 // import logUser from "./helpers/log-user";
 
 // Firebase
@@ -146,20 +147,24 @@ class Main extends Component {
    * @param {String[]} labels
    */
   editNote = (idToEdit, title, body, labels) => {
-    this.setState({
-      notes: this.state.notes.map(note => {
-        if (note.id === idToEdit) {
-          return {
-            ...note,
-            title,
-            body,
-            labels
-          };
-        } else {
-          return note;
-        }
-      })
-    });
+    // this.setState({
+    //   notes: this.state.notes.map(note => {
+    //     if (note.id === idToEdit) {
+    //       return {
+    //         ...note,
+    //         title,
+    //         body,
+    //         labels
+    //       };
+    //     } else {
+    //       return note;
+    //     }
+    //   })
+    // });
+
+    const note = this.state.notes.filter(note => note.id === idToEdit)[0];
+
+    saveNoteEdits(note, firebase);
   };
 
   /**
