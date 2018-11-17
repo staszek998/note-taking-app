@@ -10,15 +10,12 @@ import NewNote from "./components/NewNote/NewNote";
 import PinnedNotes from "./components/PinnedNotes/PinnedNotes";
 import Search from "./components/Search/Search";
 
-// Database
-import testNotes from "./db/test-notes";
-
 // Helpers
 import search from "./helpers/search";
 import getLabels from "./helpers/get-labels";
 import filterByLabels from "./helpers/filter-by-labels";
 import createCurrentView from "./helpers/current-view";
-// import getNotes from "./helpers/get-notes";
+import getNotes from "./helpers/get-notes";
 // import logUser from "./helpers/log-user";
 
 // Firebase
@@ -35,10 +32,23 @@ const uuidv4 = require("uuid/v4");
 
 class Main extends Component {
   state = {
-    notes: testNotes,
+    notes: [],
     searchParams: { query: "", scope: "" },
     labelsToShow: [],
     currentlyEditedNote: {}
+  };
+
+  componentWillMount = () => {
+    getNotes(firebase).then(notes =>
+      this.setState({
+        notes: Object.keys(notes).map(noteId => ({
+          title: notes[noteId].title,
+          body: notes[noteId].body,
+          labels: notes[noteId].labels,
+          pinned: notes[noteId].pinned
+        }))
+      })
+    );
   };
 
   /**

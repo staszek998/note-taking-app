@@ -6,7 +6,7 @@ import Label from "../Label/Label";
 const Note = ({
   title,
   body,
-  labels = [],
+  labels,
   pinned = false,
   id,
   deleteHandler = fn => fn,
@@ -23,7 +23,7 @@ const Note = ({
     <div className="card-footer">
       {labels.length > 0 ? (
         <div className="row px-2">
-          {labels.map((label, index) => (
+          {labels.split(", ").map((label, index) => (
             <Label key={index} text={label} />
           ))}
         </div>
@@ -76,7 +76,7 @@ const Note = ({
 Note.propTypes = {
   title: PropTypes.string,
   body: PropTypes.string,
-  labels: PropTypes.arrayOf(PropTypes.string),
+  labels: PropTypes.string,
   deleteHandler: PropTypes.func,
   id: PropTypes.string,
   editButtonClickHandler: PropTypes.func,

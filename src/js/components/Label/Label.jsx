@@ -9,7 +9,6 @@ const Label = ({
 }) => (
   <button
     onClick={() => {
-      console.log(`Clicked label: ${text}`);
       clickHandler(text);
     }}
     className={`btn btn-sm ${

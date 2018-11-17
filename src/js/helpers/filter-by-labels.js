@@ -7,7 +7,7 @@ const filterByLabels = (notes, labelsToShow) => {
   //  This filter() implementation will return only these notes instances that contain at least one label from the specifies 'labels' array.
   return notes.filter(note =>
     // This some() implementation will check if the note contains at least one of the specified labels. It will store their quantity in the array and return its length.
-    note.labels.some(label => labelsToShow.indexOf(label) !== -1)
+    note.labels.split(", ").some(label => labelsToShow.indexOf(label) !== -1)
   );
 };
 

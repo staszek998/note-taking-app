@@ -28,7 +28,7 @@ const Labels = ({
 );
 
 Labels.propTypes = {
-  labels: PropTypes.array,
+  labels: PropTypes.arrayOf(PropTypes.string),
   labelClickHandler: PropTypes.func,
   labelsToShow: PropTypes.array
 };

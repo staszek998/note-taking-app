@@ -3,7 +3,7 @@
  * @param {Array} notes Array of notes.
  */
 const getLabels = notes => {
-  const allLabels = notes.map(note => note.labels).flat();
+  const allLabels = notes.map(note => note.labels.split(", ")).flat();
 
   const uniqueLabels = allLabels.reduce((alreadyFoundLabels, currentLabel) => {
     return alreadyFoundLabels.indexOf(currentLabel) === -1
